@@ -105,8 +105,13 @@ img {
   line-height: 40px;
   transition: all 0.4s ease-in;
 }
-.navbar-default .navbar-nav > li > a:hover,
+
 .navbar-default .navbar-nav > li > a:focus {
+  color: white;
+  border:none;
+  outline:none;
+}
+.navbar-default .navbar-nav > li > a:hover{
   color: #ffa500;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -144,57 +149,50 @@ img {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-.caro{
-  height:60vh;
+.caro {
+  height: 60vh;
   display: flex;
- 
-position: relative;
-overflow: hidden;
+
+  position: relative;
+  overflow: hidden;
 }
 
-.caro img{
+.caro img {
   width: 100%;
-  height:100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-
-.caro__item{
+.caro__item {
   position: absolute;
-  height:100%;
-  width:100%;
-  left:0;
+  height: 100%;
+  width: 100%;
+  left: 0;
   /* transition:all 1s; */
-  animation:15s animate infinite 5s both; 
-  
- 
+  animation: 15s animate infinite 5s both;
 }
-.caro__item:first-child{
-left:100%;
+.caro__item:first-child {
+  left: 100%;
 }
 
-@keyframes animate{
-  0%{
-    transform:translateX(0%)
+@keyframes animate {
+  0% {
+    transform: translateX(0%);
   }
-  25%{
-    transform:translateX(0%)
+  25% {
+    transform: translateX(0%);
   }
-  50%{
-    transform:translateX(-100%)
+  50% {
+    transform: translateX(-100%);
   }
-  75%{
-    transform:translateX(-100%)
+  75% {
+    transform: translateX(-100%);
   }
-  100%{
-    transform:translateX(0%)
+  100% {
+    transform: translateX(0%);
   }
-
 }
-
-
-
 
 #home h1,
 #home h3 {
@@ -327,10 +325,13 @@ left:100%;
 #portfolio img {
   width: 100%;
   transition: all 0.4s ease-in;
-  opacity: 0.8;
+  opacity: 1;
+  border:none;
+  outline:none;
+ 
 }
 #portfolio img:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 #portfolio .btn {
   margin-top: 30px;
@@ -483,6 +484,13 @@ footer a:hover {
   text-decoration: none;
   list-style: none;
 }
+.drop ul a:hover{
+  color:#ffa500
+}
+.drop ul a:foucs{
+  color:white;
+}
+
 
 .drop.show ul,
 .drop.show ul li,
@@ -524,11 +532,7 @@ footer a:hover {
     position: static;
     height: 0;
     /* overflow: hidden; */
-
-  
   }
- 
-  
 }
 
 /*
@@ -561,8 +565,8 @@ Slider
 }
 .slide-img {
   height: 100%;
-  width:100%;
-  
+  width: 100%;
+
   object-fit: cover;
 }
 .slide h1 {
@@ -621,4 +625,29 @@ Slider
   .slider-container {
     height: 65vh;
   }
+}
+
+.projects {
+  padding: 1rem 3rem;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
+  justify-content: center;
+}
+.item {
+  border: 14px solid #ffffff;
+  border-radius: 2px;
+  position: relative;
+}
+.item__heading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0%);
+  opacity: 0;
+  transition: all 1s;
+}
+.item:hover .item__heading {
+  transform: translate(-50%, -80%);
+  opacity: 1;
 }
