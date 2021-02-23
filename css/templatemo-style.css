@@ -303,12 +303,69 @@ img {
 
 /* portfolio section */
 #portfolio-header {
-  background: url("../images/portfolio-header.jpg") no-repeat;
+  /* background: url("../images/portfolio-header.jpg") no-repeat; */
   background-size: cover;
   background-position: center;
   min-height: 500px;
   padding-top: 160px;
+  text-align: center;
 }
+.pfo__heading{
+  font-size:5rem;
+  position: relative;
+  display: inline-block;
+  margin:auto;
+  height:50px;
+  white-space: nowrap
+  
+
+}
+.pfo__heading::after{
+  content:"";
+  position: absolute;
+  width:2px;
+  background:white;
+  height:50px;
+  top:0;
+  right:0;
+
+  animation:blink 0.8s steps(3) infinite;
+
+}
+@keyframes blink{
+  0%,75%{
+    opacity: 1;
+  }
+  76%,100%{
+    opacity:0;
+  }
+}
+
+.pfo__para{
+  font-size:1.8rem;
+  margin:3rem auto;
+}
+.pfo__button{
+  color:black;
+  background:white;
+  padding:2rem 3rem;
+  border-radius:3px;
+  font-size:2rem;
+  outline:none;
+  text-decoration: none;
+  border:none;
+  transition: 0.4s all;
+}
+.pfo__button:hover{
+  color:#ffa500;
+  box-shadow: 0px 0px 29px 17px rgba(255,255,255,0.35);
+-webkit-box-shadow: 0px 0px 29px 17px rgba(255,255,255,0.35);
+-moz-box-shadow: 0px 0px 29px 17px rgba(255,255,255,0.35);
+}
+.pfo__button:focus{
+  outline:none;
+}
+
 #portfolio {
   text-align: center;
   padding-top: 80px;

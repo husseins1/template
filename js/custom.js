@@ -61,53 +61,48 @@ document.querySelectorAll(".drop").forEach(btn=>{
 
 // Slider
 
-const slides = document.querySelectorAll(".slide");
-const nextBtn = document.querySelector(".nextBtn");
-const prevBtn = document.querySelector(".prevBtn");
-slides.forEach(function (slide, index) {
-  slide.style.left = `${index * 100}%`;
-});
-let counter = 0;
-nextBtn.addEventListener("click", function () {
-  counter++;
-  carousel();
-});
 
-prevBtn.addEventListener("click", function () {
-  counter--;
-  carousel();
-});
-setInterval(()=>{
-  counter++
-  if(counter>slides.length-1){
-    counter=0;
+const letter = ["Make Your Life Easy", "hi"];
+let index =0;
+let count = 0;
+let time=200;
+async function spin() {
+  const heading = document.querySelector(".pfo__heading");
+  
+  heading.textContent += letter[index][count];
+  count++;
+  if(count === letter[index].length){
+    count=0;
+    
+      clearInterval(timer);
+      setTimeout(()=>{
+        timer = setInterval(() => {
+          spin();
+        }, time);
+        heading.textContent = "";
+         index++;
+         if (index === letter.length) {
+           index = 0;
+         }
+      } ,3000)
+    
+    
+   
+    
+    
+    
+  }else{
+    time=200;
   }
-  carousel()
-},7000)
-
-function carousel() {
-  // working with slides
-  // if (counter === slides.length) {
-  //   counter = 0;
-  // }
-  // if (counter < 0) {
-  //   counter = slides.length - 1;
-  // }
-  // working with buttons
-
-  if (counter < slides.length - 1) {
-    nextBtn.style.display = "block";
-  } else {
-    nextBtn.style.display = "none";
+  if(index === letter.length){
+    index=0;
   }
-  if (counter > 0) {
-    prevBtn.style.display = "block";
-  } else {
-    prevBtn.style.display = "none";
-  }
-  slides.forEach(function (slide) {
-    slide.style.transform = `translateX(-${counter * 100}%)`;
-  });
+ 
 }
 
-prevBtn.style.display = "none";
+let timer= setInterval(()=>{
+  spin()
+  
+}, time);
+
+
